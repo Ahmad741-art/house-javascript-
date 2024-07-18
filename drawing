@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Drawing</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="houseCanvas" width="400" height="400"></canvas>
+    <script>
+        // Get the canvas element and its context
+        var canvas = document.getElementById('houseCanvas');
+        var ctx = canvas.getContext('2d');
+
+        // Function to draw a rectangle
+        function drawRectangle(x, y, width, height, color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, width, height);
+        }
+
+        // Function to draw a triangle
+        function drawTriangle(x, y, width, height, color) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + width / 2, y - height);
+            ctx.lineTo(x - width / 2, y - height);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        // Function to draw a door
+        function drawDoor(x, y, width, height, color) {
+            drawRectangle(x, y, width, height, color);
+        }
+
+        // Function to draw a window
+        function drawWindow(x, y, width, height, color) {
+            drawRectangle(x, y, width, height, color);
+        }
+
+        // Draw the house body
+        drawRectangle(125, 200, 150, 150, 'lightblue');
+
+        // Draw the roof
+        drawTriangle(200, 200, 150, 75, 'brown');
+
+        // Draw the door
+        drawDoor(175, 300, 50, 50, 'darkred');
+
+        // Draw windows
+        drawWindow(140, 220, 30, 30, 'white');
+        drawWindow(230, 220, 30, 30, 'white');
+    </script>
+</body>
+</html>
